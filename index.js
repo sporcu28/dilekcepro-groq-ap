@@ -1,6 +1,7 @@
 // DilekçePro - GROQ Webhook API (Node.js + Express + LLaMA-3)
 import express from 'express';
 import cors from 'cors';
+import fetch from 'node-fetch'; // 💡 Eksik olan satır bu
 
 const app = express();
 const port = process.env.PORT || 3000;
