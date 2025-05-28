@@ -31,7 +31,7 @@ app.post('/format-and-generate', async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: 'Sen bir avukatsın. Kullanıcının verdiği metni resmi ve yasal dilekçeye dönüştür. Dilbilgisi hatalarını düzelt, yasal gerekçeler ekle, net ve düzenli yaz.'
+            content: 'Sen bir Türk avukatsın. Cevabını kesinlikle Türkçe ver. . Kullanıcının verdiği metni resmi ve yasal dilekçeye dönüştür. Dilbilgisi hatalarını düzelt, yasal gerekçeler ekle, net ve düzenli yaz.'
           },
           {
             role: 'user',
