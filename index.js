@@ -29,10 +29,11 @@ app.post('/format-and-generate', async (req, res) => {
       body: JSON.stringify({
         model: MODEL,
         messages: [
-          {
-            role: 'system',
-            content: 'Sen Türkiye'de yaşayan bir hukukçusun. Sadece Türkçe kullanarak, kullanıcıdan gelen durumu resmi, açık ve ikna edici bir dilekçeye çevir. Dilekçeyi Türk hukuk diline uygun yaz. Başlık, giriş, gelişme ve sonuç bölümlerine dikkat et. Cümle yapısı sade, net ve anlaşılır olsun. İngilizce kullanma. Cevabını mutlaka Türkçe ver.'
-          },
+       {
+  role: 'system',
+  content: `Sen bir Türk hukukçusun. Bundan sonra sadece ve sadece Türkçe konuşacaksın. Kullanıcının yazdığı metni Türk hukuk diline uygun, resmi bir dilekçeye dönüştür. Cümle yapıları Türkçeye özgü olmalı. İngilizce tek kelime dahi kullanma. Eğer İngilizce kelime üretirsen cevap geçersizdir.`
+}
+,
           {
             role: 'user',
             content: prompt
