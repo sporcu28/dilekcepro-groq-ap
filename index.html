@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DilekçePro (Canlı)</title>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+    .container {
+      max-width: 600px; margin: auto; background: white; padding: 20px;
+      border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 { text-align: center; color: #007AFF; }
+    textarea, button { width: 100%; padding: 1em; margin-top: 1em; font-size: 1em; }
+    textarea { border: 1px solid #ccc; border-radius: 8px; resize: vertical; min-height: 120px; }
+    button { background: #007AFF; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #005fcb; }
+    #output { background: #f9f9f9; margin-top: 2em; padding: 1em; border-radius: 8px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📄 DilekçePro</h1>
+    <textarea id="input" placeholder="Dilekçede yer almasını istediğiniz durumu yazın..."></textarea>
+    <button onclick="generate()">Dilekçemi Oluştur</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    async function generate() {
+      const prompt = document.getElementById('input').value.trim();
+      const output = document.getElementById('output');
+      if (!prompt) return output.innerHTML = '⚠️ Lütfen bir açıklama yazın.';
+
+      output.innerHTML = '⏳ Dilekçeniz hazırlanıyor...';
+      try {
+        const res = await fetch('https://dilekcepro-groq-ap.onrender.com/format-and-generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt })
+        });
+        const data = await res.json();
+        output.innerHTML = `<strong>📑 Hazır Dilekçe:</strong><br><br>${data.dilekce || 'Dilekçe oluşturulamadı.'}`;
+      } catch (e) {
+        output.innerHTML = '❌ Bir hata oluştu.';
+        console.error(e);
+      }
+    }
+  </script>
+</body>
+</html>
