@@ -1,7 +1,7 @@
-// DilekçePro - GROQ Webhook API (Node.js + Express + LLaMA-3)
+// DilekçePro - GROQ Webhook API (Türkçe Dilekçe Oluşturucu)
 import express from 'express';
 import cors from 'cors';
-import fetch from 'node-fetch'; // 💡 Eksik olan satır bu
+import fetch from 'node-fetch';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -31,7 +31,7 @@ app.post('/format-and-generate', async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: 'Sen bir Türk avukatsın. Cevabını kesinlikle Türkçe ver. . Kullanıcının verdiği metni resmi ve yasal dilekçeye dönüştür. Dilbilgisi hatalarını düzelt, yasal gerekçeler ekle, net ve düzenli yaz.'
+            content: 'Sen Türkiye'de yaşayan bir hukukçusun. Sadece Türkçe kullanarak, kullanıcıdan gelen durumu resmi, açık ve ikna edici bir dilekçeye çevir. Dilekçeyi Türk hukuk diline uygun yaz. Başlık, giriş, gelişme ve sonuç bölümlerine dikkat et. Cümle yapısı sade, net ve anlaşılır olsun. İngilizce kullanma. Cevabını mutlaka Türkçe ver.'
           },
           {
             role: 'user',
