@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: dilekce-app
+    env: php
+    plan: free
+    buildCommand: composer install --no-dev --optimize-autoloader
+    startCommand: php -S 0.0.0.0:$PORT -t public
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_HOST
+        value: localhost
+      - key: DB_NAME
+        value: petition_app
+      - key: DB_USER
+        value: root
+      - key: DB_PASS
+        value: ""
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CSRF_TOKEN_NAME
+        value: csrf_token
+    disk:
+      name: uploads
+      mountPath: /opt/render/project/src/uploads
+      sizeGB: 1
