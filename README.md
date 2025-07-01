@@ -1,240 +1,232 @@
-# Dilekçe Uygulaması - AI Destekli Dilekçe Yönetim Sistemi
+# 📄 AI Destekli Profesyonel Dilekçe Uygulaması
 
-Modern, yapay zeka destekli dilekçe yönetim sistemi. PHP tabanlı, responsive tasarımlı ve kullanıcı dostu bir web uygulaması.
+## 🚀 Canlı Demo
+Uygulama şu anda çalışıyor: `http://localhost:8000`
 
-## 🌟 Özellikler
+## ✨ Özellikler
 
 ### 🤖 AI Destekli Özellikler
-- **Otomatik Dilekçe Oluşturma**: OpenAI GPT modeli ile profesyonel dilekçe oluşturma
-- **Akıllı İçerik Önerileri**: Konuya göre otomatik kategori ve öncelik önerileri
-- **Dilekçe İyileştirme**: Mevcut dilekçeleri AI ile düzenleme ve iyileştirme
-- **Otomatik Yanıt Oluşturma**: Yöneticiler için AI destekli yanıt önerileri
+- **Otomatik Dilekçe Oluşturma**: Konuyu belirtin, AI size profesyonel dilekçe hazırlasın
+- **Akıllı Cevap Sistemi**: Yüklenen dilekçelere otomatik profesyonel yanıtlar
+- **Ton Seçenekleri**: Resmi, saygılı, acil, samimi tonlarda dilekçe oluşturma
+- **İçerik İyileştirme**: AI destekli metin düzeltme ve iyileştirme önerileri
 
-### 👤 Kullanıcı Özellikleri
-- **Kolay Kayıt ve Giriş**: Güvenli kullanıcı hesap yönetimi
-- **Dilekçe Oluşturma**: Manuel veya AI destekli dilekçe oluşturma
-- **Durum Takibi**: Gerçek zamanlı dilekçe durumu izleme
-- **Referans Numarası**: Her dilekçe için benzersiz takip numarası
-- **Kategori Sistemi**: Organize edilmiş dilekçe kategorileri
-- **Öncelik Seviyeleri**: Düşük, Orta, Yüksek, Acil öncelik seçenekleri
+### 📁 Dosya Yönetimi
+- **Drag & Drop Yükleme**: Sürükle-bırak ile kolay dosya yükleme
+- **Çoklu Format Desteği**: PDF, Word (.doc, .docx), Resim (.jpg, .png) desteği
+- **Dosya Boyutu Kontrolü**: Maksimum 10MB dosya desteği
+- **Güvenli Yükleme**: Dosya türü ve boyut doğrulaması
 
-### 🛡️ Yönetici Özellikleri
-- **Admin Dashboard**: Kapsamlı yönetim paneli
-- **Dilekçe Yönetimi**: Tüm dilekçeleri görüntüleme ve yönetme
-- **Kullanıcı Yönetimi**: Kullanıcı hesaplarını yönetme
-- **İstatistikler**: Detaylı raporlama ve analitik
-- **AI Yanıt Sistemi**: Otomatik yanıt oluşturma desteği
+### 📥 İndirme Seçenekleri
+- **PDF İndirme**: Profesyonel PDF formatında belge indirme
+- **Word İndirme**: Düzenlenebilir RTF formatında indirme
+- **ZIP Arşivi**: Her iki formatı birden içeren arşiv
+- **E-posta Gönderimi**: Belgeleri e-posta adresinize gönderme
 
-### 🎨 Teknik Özellikler
-- **Responsive Tasarım**: Tüm cihazlarda uyumlu
-- **Modern UI/UX**: Bootstrap 5 ile şık arayüz
-- **CSRF Koruması**: Güvenlik önlemleri
-- **Session Yönetimi**: Güvenli oturum kontrolü
-- **Database Güvenliği**: PDO ile güvenli veritabanı işlemleri
-- **Error Handling**: Kapsamlı hata yönetimi
+### 🔒 Güvenlik
+- **CSRF Koruması**: Cross-Site Request Forgery saldırılarına karşı koruma
+- **Şifre Şifreleme**: BCrypt ile güvenli şifre depolama
+- **Session Güvenliği**: Güvenli oturum yönetimi
+- **XSS Koruması**: Cross-Site Scripting saldırılarına karşı koruma
+- **SQL Injection Koruması**: PDO prepared statements kullanımı
 
-## 🚀 Kurulum
+### � Kullanıcı Deneyimi
+- **Responsive Tasarım**: Mobil, tablet ve desktop uyumlu
+- **Modern Arayüz**: Bootstrap 5 ve Font Awesome ile modern tasarım
+- **Animasyonlar**: Kullanıcı etkileşimini artıran smooth animasyonlar
+- **Gerçek Zamanlı Takip**: Dilekçe durumu canlı takibi
+- **Toast Bildirimleri**: Kullanıcı dostu bildirim sistemi
+
+## 🛠 Teknolojiler
+
+### Backend
+- **PHP 8.4+**: Modern PHP özellikleri
+- **MySQL**: Veritabanı yönetimi
+- **Composer**: Bağımlılık yönetimi
+- **PSR-4 Autoloading**: Modern PHP standartları
+
+### Frontend  
+- **Bootstrap 5**: Responsive CSS framework
+- **Font Awesome 6**: İkon kütüphanesi
+- **JavaScript ES6+**: Modern JavaScript özellikleri
+- **CSS Grid & Flexbox**: Modern layout teknikleri
+
+### Kütüphaneler
+- **Dotenv**: Environment değişken yönetimi
+- **Twig**: Template engine (opsiyonel)
+- **Guzzle**: HTTP client için hazır
+
+## � Kurulum
 
 ### Gereksinimler
 - PHP 8.0 veya üzeri
-- MySQL 5.7 veya üzeri
+- MySQL 5.7 veya üzeri  
 - Composer
-- OpenAI API Key (AI özellikleri için)
+- Web sunucusu (Apache/Nginx) veya PHP built-in server
 
-### 1. Projeyi İndirin
+### Adım Adım Kurulum
+
+1. **Projeyi klonlayın**
 ```bash
-git clone https://github.com/yourusername/dilekce-uygulamasi.git
-cd dilekce-uygulamasi
+git clone https://github.com/sporcu28/dilekcepro-groq-ap.git
+cd dilekcepro-groq-ap
 ```
 
-### 2. Bağımlılıkları Yükleyin
+2. **Bağımlılıkları yükleyin**
 ```bash
 composer install
 ```
 
-### 3. Ortam Değişkenlerini Ayarlayın
+3. **Environment dosyasını oluşturun**
 ```bash
 cp .env.example .env
 ```
 
-`.env` dosyasını düzenleyin:
+4. **Ortam değişkenlerini düzenleyin**
 ```env
-# Veritabanı ayarları
+# Database Configuration
 DB_HOST=localhost
-DB_NAME=dilekce_db
-DB_USER=your_username
+DB_NAME=petition_app
+DB_USER=root
 DB_PASS=your_password
 
-# OpenAI API Anahtarı
+# OpenAI API (Opsiyonel)
 OPENAI_API_KEY=your_openai_api_key
-
-# Uygulama ayarları
-APP_NAME="Dilekçe Uygulaması"
-APP_URL=http://localhost:8000
-APP_DEBUG=true
 ```
 
-### 4. Veritabanını Oluşturun
+5. **Veritabanını oluşturun**
 ```bash
-# MySQL'e bağlanın ve veritabanını oluşturun
 mysql -u root -p < config/database.sql
 ```
 
-### 5. Web Sunucusunu Başlatın
+6. **Upload klasörlerini oluşturun**
 ```bash
-# PHP built-in server ile
-composer start
-
-# Veya manuel olarak
-php -S localhost:8000 -t public
+mkdir -p uploads/petitions public/downloads
+chmod 755 uploads public/downloads
 ```
 
-## 📁 Proje Yapısı
-
+7. **Sunucuyu başlatın**
+```bash
+cd public
+php -S localhost:8000
 ```
-dilekce-uygulamasi/
-├── config/
-│   └── database.sql          # Veritabanı şeması
-├── public/
-│   └── index.php            # Ana giriş noktası
-├── src/
-│   ├── Database.php         # Veritabanı bağlantı sınıfı
-│   ├── Models/              # Model sınıfları
-│   │   ├── User.php
-│   │   └── Petition.php
-│   └── Services/            # Servis sınıfları
-│       └── AIService.php    # OpenAI entegrasyonu
-├── views/                   # View dosyaları
-│   ├── layout.php          # Ana layout
-│   ├── home.php            # Ana sayfa
-│   ├── dashboard.php       # Dashboard
-│   ├── auth/               # Kimlik doğrulama sayfaları
-│   └── petitions/          # Dilekçe sayfaları
-├── .env.example            # Ortam değişkenleri şablonu
-├── composer.json           # PHP bağımlılıkları
-└── README.md              # Bu dosya
+
+8. **Tarayıcıda açın**
+```
+http://localhost:8000
 ```
 
 ## 🎯 Kullanım
 
-### Kullanıcı İşlemleri
+### Dilekçe Oluşturma (AI Destekli)
+1. Ana sayfada "Hemen Dilekçe Oluştur" butonuna tıklayın
+2. Konunuzu ve tonunu seçin
+3. "Dilekçe Oluştur" butonuna tıklayın
+4. AI tarafından oluşturulan dilekçeyi gözden geçirin
+5. PDF veya Word formatında indirin
 
-1. **Hesap Oluşturma**: `/register` sayfasından yeni hesap oluşturun
-2. **Giriş Yapma**: `/login` sayfasından giriş yapın
-3. **Dilekçe Oluşturma**: 
-   - Manuel: `/petitions/create`
-   - AI Destekli: `/petitions/ai-generate`
-4. **Dilekçe Takibi**: Dashboard'dan dilekçelerinizi takip edin
+### Dosya Yükleme ve Cevap Alma
+1. "Dilekçe Yükle & Cevap Al" seçeneğini kullanın
+2. Dosyanızı sürükle-bırak ile yükleyin
+3. Kategori ve öncelik seçin
+4. Ek açıklama ekleyin (opsiyonel)
+5. "Yükle & Cevap İste" butonuna tıklayın
+6. AI tarafından hazırlanan cevabı görüntüleyin
+7. Cevabı çeşitli formatlarda indirin
 
-### AI Dilekçe Oluşturma
+### Yönetici Paneli
+- `/admin` adresinden yönetici paneline erişim
+- Dilekçe yönetimi ve istatistikler
+- Kullanıcı yönetimi
+- Sistem raporları
 
-1. Konunuzu net bir şekilde belirtin
-2. Detayları ve gerekçelerinizi açıklayın
-3. Uygun kategori ve öncelik seçin
-4. AI'ın oluşturduğu dilekçeyi inceleyin
-5. Gerekirse düzenleyin ve kaydedin
+## 📊 Veritabanı Yapısı
 
-### Admin İşlemleri
-
-1. Admin hesabıyla giriş yapın (varsayılan: admin/admin123)
-2. `/admin` panelinden sistem yönetimi
-3. Dilekçeleri inceleme ve yanıtlama
-4. Kullanıcı ve kategori yönetimi
+### Ana Tablolar
+- `users`: Kullanıcı bilgileri
+- `petitions`: Dilekçe verisi
+- `petition_categories`: Dilekçe kategorileri
+- `petition_responses`: Yanıt sistemi
+- `petition_attachments`: Dosya ekleri
+- `activity_logs`: Sistem logları
 
 ## 🔧 API Endpoints
 
 ### Kimlik Doğrulama
-- `POST /api/auth/login` - Giriş yapma
-- `POST /api/auth/register` - Kayıt olma
+- `POST /api/auth/login`: Kullanıcı girişi
+- `POST /api/auth/register`: Kullanıcı kaydı
 
 ### Dilekçe İşlemleri
-- `POST /api/petitions/create` - Dilekçe oluşturma
-- `GET /api/petitions/search` - Dilekçe arama
-- `PUT /api/petitions/{id}` - Dilekçe güncelleme
+- `POST /api/petitions/create`: Yeni dilekçe oluşturma
+- `POST /api/ai/generate-petition`: AI ile dilekçe oluşturma
+- `POST /api/download/pdf`: PDF indirme
+- `POST /api/download/word`: Word indirme
 
-### AI İşlemleri
-- `POST /api/ai/generate-petition` - AI ile dilekçe oluşturma
-- `POST /api/ai/improve-petition` - Dilekçe iyileştirme
-- `POST /api/ai/generate-response` - AI yanıt oluşturma
+## � Ekran Görüntüleri
 
-## 🔒 Güvenlik
+### Ana Sayfa
+- Modern ve kullanıcı dostu arayüz
+- Hızlı erişim butonları
+- Özellik showcası
 
-- **CSRF Token**: Tüm POST istekleri için CSRF koruması
-- **Password Hashing**: bcrypt ile şifre hashleme
-- **SQL Injection**: PDO prepared statements
-- **XSS Protection**: HTML çıktı filtreleme
-- **Session Security**: Güvenli session yönetimi
+### Dilekçe Oluşturma
+- AI destekli form
+- Gerçek zamanlı önizleme
+- İndirme seçenekleri
 
-## 🎨 Özelleştirme
+### Dosya Yükleme
+- Drag & drop interface
+- Dosya önizleme
+- İlerleme göstergesi
 
-### Tema Değişiklikleri
-CSS değişkenleri `views/layout.php` dosyasında tanımlanmıştır:
-```css
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --success-color: #27ae60;
-    /* ... */
-}
-```
+## 🚀 Gelecek Planları
 
-### AI Model Ayarları
-`src/Services/AIService.php` dosyasında AI parametrelerini ayarlayabilirsiniz:
-- Model seçimi (gpt-3.5-turbo, gpt-4)
-- Temperature ayarları
-- Max tokens limiti
+### v2.0 Özellikleri
+- [ ] E-imza entegrasyonu
+- [ ] SMS bildirimleri
+- [ ] Çoklu dil desteği
+- [ ] API genişletmesi
+- [ ] Mobil uygulama
 
-## 📊 Veritabanı Şeması
+### AI Geliştirmeleri
+- [ ] Daha gelişmiş dil modelleri
+- [ ] Özel prompt'lar
+- [ ] Dilekçe analizi
+- [ ] Sentiment analysis
 
-### Ana Tablolar
-- `users` - Kullanıcı bilgileri
-- `petitions` - Dilekçe verileri
-- `petition_categories` - Kategori tanımları
-- `petition_responses` - Dilekçe yanıtları
-- `petition_attachments` - Dosya ekleri
-- `activity_logs` - Sistem logları
+## 🤝 Katkıda Bulunma
 
-## 🤝 Katkı Sağlama
-
-1. Bu projeyi fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+1. Fork edin
+2. Feature branch oluşturun (`git checkout -b feature/yeni-ozellik`)
+3. Değişikliklerinizi commit edin (`git commit -am 'Yeni özellik eklendi'`)
+4. Branch'inizi push edin (`git push origin feature/yeni-ozellik`)
 5. Pull Request oluşturun
 
 ## 📝 Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasını inceleyin.
 
-## 🆘 Destek
+## 👥 Ekip
 
-Sorunlar veya sorularınız için:
-- Issue açın: [GitHub Issues](https://github.com/yourusername/dilekce-uygulamasi/issues)
-- E-posta: support@dilekceapp.com
+- **Ana Geliştirici**: AI Assisted Development
+- **UI/UX**: Bootstrap 5 + Custom CSS
+- **Backend**: PHP 8+ Modern Architecture
 
-## 🔄 Sürüm Geçmişi
+## 📞 İletişim
 
-### v1.0.0 (İlk Sürüm)
-- ✅ Temel dilekçe yönetimi
-- ✅ AI destekli dilekçe oluşturma
-- ✅ Kullanıcı ve admin panelleri
+- **GitHub**: [sporcu28/dilekcepro-groq-ap](https://github.com/sporcu28/dilekcepro-groq-ap)
+- **E-posta**: developer@petitionapp.com
+
+## 🏆 Başarılar
+
+- ✅ Modern PHP 8+ mimarisi
+- ✅ AI entegrasyonu
+- ✅ Güvenli dosya yükleme
+- ✅ PDF/Word indirme
 - ✅ Responsive tasarım
-- ✅ Güvenlik önlemleri
-
-### Planlanan Özellikler
-- 📱 Mobil uygulama
-- 📧 E-posta bildirimleri
-- 📎 Dosya yükleme sistemi
-- 🔄 Workflow yönetimi
-- 📊 Gelişmiş raporlama
-
-## 🙏 Teşekkürler
-
-- [OpenAI](https://openai.com) - AI API desteği için
-- [Bootstrap](https://getbootstrap.com) - UI framework için
-- [Font Awesome](https://fontawesome.com) - İkonlar için
-- Türk geliştiriciler topluluğu için destekleri
+- ✅ CSRF koruması
+- ✅ Session güvenliği
 
 ---
 
-**Dilekçe Uygulaması** - Modern dilekçe yönetimi için yapay zeka destekli çözüm 🚀
+**Not**: Bu uygulama demo amaçlı geliştirilmiştir. Üretim ortamında kullanım için ek güvenlik önlemleri alınması önerilir.
