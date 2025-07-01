@@ -1,240 +1,252 @@
-# Dilekçe Uygulaması - AI Destekli Dilekçe Yönetim Sistemi
+# 🤖 AI Sports Predictor - Yapay Zeka Destekli Canlı Maç Tahmin Sistemi
 
-Modern, yapay zeka destekli dilekçe yönetim sistemi. PHP tabanlı, responsive tasarımlı ve kullanıcı dostu bir web uygulaması.
+Modern teknolojilerle geliştirilmiş, yapay zeka destekli canlı maç analiz ve tahmin sistemi. Gerçek zamanlı maç verilerini analiz ederek gelişmiş AI algoritmaları ile %100 doğruluk hedefli tahminler yapan kapsamlı bir uygulama.
 
-## 🌟 Özellikler
+## ✨ Özellikler
 
-### 🤖 AI Destekli Özellikler
-- **Otomatik Dilekçe Oluşturma**: OpenAI GPT modeli ile profesyonel dilekçe oluşturma
-- **Akıllı İçerik Önerileri**: Konuya göre otomatik kategori ve öncelik önerileri
-- **Dilekçe İyileştirme**: Mevcut dilekçeleri AI ile düzenleme ve iyileştirme
-- **Otomatik Yanıt Oluşturma**: Yöneticiler için AI destekli yanıt önerileri
+### � AI Tahmin Motoru
+- **TensorFlow.js** ile gelişmiş neural network modeli
+- Gerçek zamanlı maç verilerini analiz eden machine learning algoritmaları
+- Çoklu olay tipi tahminleri (Gol, Korner, Kart, Değişiklik vb.)
+- Dinamik güven skorları ve olasılık hesaplamaları
 
-### 👤 Kullanıcı Özellikleri
-- **Kolay Kayıt ve Giriş**: Güvenli kullanıcı hesap yönetimi
-- **Dilekçe Oluşturma**: Manuel veya AI destekli dilekçe oluşturma
-- **Durum Takibi**: Gerçek zamanlı dilekçe durumu izleme
-- **Referans Numarası**: Her dilekçe için benzersiz takip numarası
-- **Kategori Sistemi**: Organize edilmiş dilekçe kategorileri
-- **Öncelik Seviyeleri**: Düşük, Orta, Yüksek, Acil öncelik seçenekleri
+### ⚡ Gerçek Zamanlı Veriler
+- **Socket.IO** ile canlı veri akışı
+- 30 saniyede bir güncellenen maç bilgileri
+- Anlık olay bildirimleri
+- Otomatik yeniden bağlantı sistemi
 
-### 🛡️ Yönetici Özellikleri
-- **Admin Dashboard**: Kapsamlı yönetim paneli
-- **Dilekçe Yönetimi**: Tüm dilekçeleri görüntüleme ve yönetme
-- **Kullanıcı Yönetimi**: Kullanıcı hesaplarını yönetme
-- **İstatistikler**: Detaylı raporlama ve analitik
-- **AI Yanıt Sistemi**: Otomatik yanıt oluşturma desteği
+### � Detaylı Analiz
+- Momentum ve baskı analizleri
+- Kritik faktör belirlemeleri
+- Oyun durumu değerlendirmeleri
+- İstatistiksel karşılaştırmalar
 
-### 🎨 Teknik Özellikler
-- **Responsive Tasarım**: Tüm cihazlarda uyumlu
-- **Modern UI/UX**: Bootstrap 5 ile şık arayüz
-- **CSRF Koruması**: Güvenlik önlemleri
-- **Session Yönetimi**: Güvenli oturum kontrolü
-- **Database Güvenliği**: PDO ile güvenli veritabanı işlemleri
-- **Error Handling**: Kapsamlı hata yönetimi
+### 🎨 Modern Arayüz
+- **React 18** ile gelişmiş component yapısı
+- **Framer Motion** animasyonları
+- Responsive ve mobil uyumlu tasarım
+- Glass morphism ve gradient efektleri
 
 ## 🚀 Kurulum
 
 ### Gereksinimler
-- PHP 8.0 veya üzeri
-- MySQL 5.7 veya üzeri
-- Composer
-- OpenAI API Key (AI özellikleri için)
+- Node.js (v16+)
+- npm veya yarn
+- Modern web tarayıcısı
 
 ### 1. Projeyi İndirin
 ```bash
-git clone https://github.com/yourusername/dilekce-uygulamasi.git
-cd dilekce-uygulamasi
+git clone <repository-url>
+cd ai-sports-predictor
 ```
 
-### 2. Bağımlılıkları Yükleyin
+### 2. Backend Kurulumu
 ```bash
-composer install
-```
+# Dependencies'leri yükleyin
+npm install
 
-### 3. Ortam Değişkenlerini Ayarlayın
-```bash
+# Environment variables'ları ayarlayın
 cp .env.example .env
+
+# Serveri başlatın
+npm start
 ```
 
-`.env` dosyasını düzenleyin:
-```env
-# Veritabanı ayarları
-DB_HOST=localhost
-DB_NAME=dilekce_db
-DB_USER=your_username
-DB_PASS=your_password
-
-# OpenAI API Anahtarı
-OPENAI_API_KEY=your_openai_api_key
-
-# Uygulama ayarları
-APP_NAME="Dilekçe Uygulaması"
-APP_URL=http://localhost:8000
-APP_DEBUG=true
-```
-
-### 4. Veritabanını Oluşturun
+### 3. Frontend Kurulumu
 ```bash
-# MySQL'e bağlanın ve veritabanını oluşturun
-mysql -u root -p < config/database.sql
+# Client dizinine geçin
+cd client
+
+# Dependencies'leri yükleyin
+npm install
+
+# Environment variables'ları ayarlayın
+cp .env.example .env
+
+# Development server'ı başlatın
+npm start
 ```
 
-### 5. Web Sunucusunu Başlatın
+### 4. Production Build
 ```bash
-# PHP built-in server ile
-composer start
+# Ana dizinde
+npm run build
 
-# Veya manuel olarak
-php -S localhost:8000 -t public
+# Tek komutla hem backend hem frontend başlatma
+npm run dev
 ```
 
-## 📁 Proje Yapısı
+## 🏗️ Proje Yapısı
 
 ```
-dilekce-uygulamasi/
-├── config/
-│   └── database.sql          # Veritabanı şeması
-├── public/
-│   └── index.php            # Ana giriş noktası
-├── src/
-│   ├── Database.php         # Veritabanı bağlantı sınıfı
-│   ├── Models/              # Model sınıfları
-│   │   ├── User.php
-│   │   └── Petition.php
-│   └── Services/            # Servis sınıfları
-│       └── AIService.php    # OpenAI entegrasyonu
-├── views/                   # View dosyaları
-│   ├── layout.php          # Ana layout
-│   ├── home.php            # Ana sayfa
-│   ├── dashboard.php       # Dashboard
-│   ├── auth/               # Kimlik doğrulama sayfaları
-│   └── petitions/          # Dilekçe sayfaları
-├── .env.example            # Ortam değişkenleri şablonu
-├── composer.json           # PHP bağımlılıkları
-└── README.md              # Bu dosya
+ai-sports-predictor/
+├── 📁 src/
+│   ├── 📁 services/
+│   │   ├── sportsDataAPI.js      # Maç verisi API servisi
+│   │   ├── aiPredictor.js        # AI tahmin motoru
+│   │   └── matchAnalyzer.js      # Maç analiz servisi
+│   └── index.js                  # Ana server dosyası
+├── 📁 client/
+│   ├── 📁 src/
+│   │   ├── 📁 components/        # React bileşenleri
+│   │   ├── 📁 services/          # Frontend servisler
+│   │   └── 📁 styles/            # CSS ve stil dosyaları
+│   └── package.json
+├── package.json
+└── README.md
 ```
 
-## 🎯 Kullanım
+## 🔧 Teknik Detaylar
 
-### Kullanıcı İşlemleri
+### Backend Teknolojileri
+- **Node.js & Express** - Server framework
+- **Socket.IO** - Gerçek zamanlı iletişim
+- **TensorFlow.js** - AI/ML işlemler
+- **Axios** - HTTP client
+- **CORS** - Cross-origin resource sharing
 
-1. **Hesap Oluşturma**: `/register` sayfasından yeni hesap oluşturun
-2. **Giriş Yapma**: `/login` sayfasından giriş yapın
-3. **Dilekçe Oluşturma**: 
-   - Manuel: `/petitions/create`
-   - AI Destekli: `/petitions/ai-generate`
-4. **Dilekçe Takibi**: Dashboard'dan dilekçelerinizi takip edin
+### Frontend Teknolojileri
+- **React 18** - Modern UI library
+- **Framer Motion** - Animasyon library
+- **Recharts** - Grafik ve chart library
+- **Lucide React** - İkon library
+- **React Hot Toast** - Bildirim sistemi
 
-### AI Dilekçe Oluşturma
+### AI/ML Özellikleri
+- **Neural Network**: 15 input, 3 hidden layer, 7 output
+- **Training Data**: 1000+ sentetik maç verisi
+- **Features**: Dakika, skor, istatistikler, momentum, baskı
+- **Predictions**: Gol, korner, kart, değişiklik, ofsayt, faul
 
-1. Konunuzu net bir şekilde belirtin
-2. Detayları ve gerekçelerinizi açıklayın
-3. Uygun kategori ve öncelik seçin
-4. AI'ın oluşturduğu dilekçeyi inceleyin
-5. Gerekirse düzenleyin ve kaydedin
+## � API Endpoints
 
-### Admin İşlemleri
-
-1. Admin hesabıyla giriş yapın (varsayılan: admin/admin123)
-2. `/admin` panelinden sistem yönetimi
-3. Dilekçeleri inceleme ve yanıtlama
-4. Kullanıcı ve kategori yönetimi
-
-## 🔧 API Endpoints
-
-### Kimlik Doğrulama
-- `POST /api/auth/login` - Giriş yapma
-- `POST /api/auth/register` - Kayıt olma
-
-### Dilekçe İşlemleri
-- `POST /api/petitions/create` - Dilekçe oluşturma
-- `GET /api/petitions/search` - Dilekçe arama
-- `PUT /api/petitions/{id}` - Dilekçe güncelleme
-
-### AI İşlemleri
-- `POST /api/ai/generate-petition` - AI ile dilekçe oluşturma
-- `POST /api/ai/improve-petition` - Dilekçe iyileştirme
-- `POST /api/ai/generate-response` - AI yanıt oluşturma
-
-## 🔒 Güvenlik
-
-- **CSRF Token**: Tüm POST istekleri için CSRF koruması
-- **Password Hashing**: bcrypt ile şifre hashleme
-- **SQL Injection**: PDO prepared statements
-- **XSS Protection**: HTML çıktı filtreleme
-- **Session Security**: Güvenli session yönetimi
-
-## 🎨 Özelleştirme
-
-### Tema Değişiklikleri
-CSS değişkenleri `views/layout.php` dosyasında tanımlanmıştır:
-```css
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --success-color: #27ae60;
-    /* ... */
+### GET /api/live-matches
+Canlı maçların listesini döner
+```json
+{
+  "id": "match_id",
+  "homeTeam": "Team A",
+  "awayTeam": "Team B",
+  "score": { "fullTime": { "home": 2, "away": 1 } },
+  "minute": 67,
+  "status": "IN_PLAY"
 }
 ```
 
-### AI Model Ayarları
-`src/Services/AIService.php` dosyasında AI parametrelerini ayarlayabilirsiniz:
-- Model seçimi (gpt-3.5-turbo, gpt-4)
-- Temperature ayarları
-- Max tokens limiti
+### GET /api/match/:id
+Detaylı maç bilgileri ve AI tahminleri
+```json
+{
+  "match": { /* maç verisi */ },
+  "predictions": { /* AI tahminleri */ },
+  "analysis": { /* detaylı analiz */ }
+}
+```
 
-## 📊 Veritabanı Şeması
+### POST /api/predict
+Belirli olay tipi için tahmin
+```json
+{
+  "matchId": "match_id",
+  "eventType": "goal"
+}
+```
 
-### Ana Tablolar
-- `users` - Kullanıcı bilgileri
-- `petitions` - Dilekçe verileri
-- `petition_categories` - Kategori tanımları
-- `petition_responses` - Dilekçe yanıtları
-- `petition_attachments` - Dosya ekleri
-- `activity_logs` - Sistem logları
+## 🔮 AI Tahmin Sistemi
 
-## 🤝 Katkı Sağlama
+### Tahmin Edilen Olaylar
+1. **⚽ Gol** - Skor değişikliği olasılığı
+2. **📐 Korner** - Sabit top durumu
+3. **🟨 Sarı Kart** - Disiplin cezası
+4. **🟥 Kırmızı Kart** - Oyuncu ihracı
+5. **🔄 Oyuncu Değişikliği** - Taktik hamle
+6. **🚩 Ofsayt** - Pozisyon hatası
+7. **⚠️ Faul** - Oyun içi temas
 
-1. Bu projeyi fork edin
+### Analiz Faktörleri
+- **Zaman Analizi**: Dakika bazlı olay olasılıkları
+- **Momentum**: Takım performans trendi
+- **Baskı**: Oyun baskısı ve gerginlik seviyesi
+- **İstatistikler**: Şut, korner, faul sayıları
+- **Takım Gücü**: Historical performans
+- **Yorgunluk**: Maç süresi etkisi
+
+## 🛠️ Geliştirme
+
+### Development Mode
+```bash
+# Backend
+npm run dev
+
+# Frontend
+cd client && npm start
+```
+
+### Environment Variables
+
+#### Backend (.env)
+```env
+PORT=3000
+FOOTBALL_API_KEY=your_api_key
+AI_MODEL_CONFIDENCE_THRESHOLD=0.7
+```
+
+#### Frontend (client/.env)
+```env
+REACT_APP_API_URL=http://localhost:3000
+```
+
+### Debug Mode
+Debug modunu aktifleştirmek için:
+```bash
+DEBUG=ai-sports-predictor:* npm start
+```
+
+## 📱 Kullanım
+
+1. **Ana Sayfa**: Canlı maçları görüntüleyin
+2. **Maç Seçimi**: İlgilendiğiniz maça tıklayın
+3. **AI Tahminler**: Gerçek zamanlı tahminleri takip edin
+4. **Analiz**: Detaylı maç analizini inceleyin
+5. **İstatistikler**: Grafik ve tablolarla verileri görüntüleyin
+
+## 🎯 Gelecek Özellikler
+
+- [ ] Kullanıcı hesapları ve favoriler
+- [ ] Tarihi maç veritabanı
+- [ ] Gelişmiş AI modelleri
+- [ ] Push notifications
+- [ ] Bahis önerileri
+- [ ] Sosyal paylaşım
+- [ ] Dark/Light theme
+- [ ] Multi-language support
+
+## 🤝 Katkıda Bulunma
+
+1. Fork edin
 2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+3. Commit yapın (`git commit -m 'Add amazing feature'`)
+4. Push edin (`git push origin feature/amazing-feature`)
 5. Pull Request oluşturun
 
-## 📝 Lisans
+## � Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasını inceleyin.
 
-## 🆘 Destek
+## � Teşekkürler
 
-Sorunlar veya sorularınız için:
-- Issue açın: [GitHub Issues](https://github.com/yourusername/dilekce-uygulamasi/issues)
-- E-posta: support@dilekceapp.com
+- **TensorFlow.js** ekibine AI/ML desteği için
+- **React** ve **Node.js** topluluklarına
+- **Football-Data.org** API sağlayıcısına
+- Tüm açık kaynak katkıda bulunanlara
 
-## 🔄 Sürüm Geçmişi
+## 📧 İletişim
 
-### v1.0.0 (İlk Sürüm)
-- ✅ Temel dilekçe yönetimi
-- ✅ AI destekli dilekçe oluşturma
-- ✅ Kullanıcı ve admin panelleri
-- ✅ Responsive tasarım
-- ✅ Güvenlik önlemleri
-
-### Planlanan Özellikler
-- 📱 Mobil uygulama
-- 📧 E-posta bildirimleri
-- 📎 Dosya yükleme sistemi
-- 🔄 Workflow yönetimi
-- 📊 Gelişmiş raporlama
-
-## 🙏 Teşekkürler
-
-- [OpenAI](https://openai.com) - AI API desteği için
-- [Bootstrap](https://getbootstrap.com) - UI framework için
-- [Font Awesome](https://fontawesome.com) - İkonlar için
-- Türk geliştiriciler topluluğu için destekleri
+- 🌐 Website: [AI Sports Predictor](your-website.com)
+- 📱 Email: contact@aisportspredictor.com
+- 🐦 Twitter: [@aisportspred](https://twitter.com/aisportspred)
 
 ---
 
-**Dilekçe Uygulaması** - Modern dilekçe yönetimi için yapay zeka destekli çözüm 🚀
+**⚡ Yapay Zeka ile Geleceği Tahmin Edin! ⚡**
