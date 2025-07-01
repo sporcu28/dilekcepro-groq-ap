@@ -116,11 +116,7 @@ function jsonResponse(array $data, int $httpCode = 200): void {
 $routes = [
     'GET' => [
         '/' => function() {
-            if (isLoggedIn()) {
-                redirect('/dashboard');
-            } else {
-                renderView('home');
-            }
+            renderView('home');
         },
         '/login' => function() {
             if (isLoggedIn()) {
@@ -171,6 +167,15 @@ $routes = [
         '/petitions/ai-generate' => function() {
             requireAuth();
             renderView('petitions/ai-generate');
+        },
+        '/ai-generate' => function() {
+            renderView('petitions/ai-generate');
+        },
+        '/upload-petition' => function() {
+            renderView('petitions/upload-petition');
+        },
+        '/petition-response' => function() {
+            renderView('petitions/petition-response');
         },
         '/admin' => function() {
             requireRole('admin');
@@ -325,6 +330,69 @@ $routes = [
                 
             } catch (Exception $e) {
                 jsonResponse(['error' => 'AI servis hatası: ' . $e->getMessage()], 500);
+            }
+        },
+        '/api/download/pdf' => function() {
+            $referenceNumber = $_POST['reference_number'] ?? '';
+            $category = $_POST['category'] ?? '';
+            $priority = $_POST['priority'] ?? '';
+            $responseContent = $_POST['response_content'] ?? '';
+            
+            if (empty($referenceNumber) || empty($responseContent)) {
+                jsonResponse(['error' => 'Gerekli bilgiler eksik'], 400);
+            }
+            
+            try {
+                require_once __DIR__ . '/../src/Services/PDFService.php';
+                
+                $petitionData = [
+                    'reference_number' => $referenceNumber,
+                    'category_name' => $category,
+                    'priority_name' => $priority
+                ];
+                
+                $pdfContent = PDFService::generatePetitionResponsePDF($petitionData, $responseContent);
+                $filename = "dilekce_cevabi_{$referenceNumber}.html";
+                
+                // HTML dosyası olarak indir (PDF simülasyonu)
+                header('Content-Type: text/html; charset=utf-8');
+                header('Content-Disposition: attachment; filename="' . $filename . '"');
+                echo $pdfContent;
+                exit;
+                
+            } catch (Exception $e) {
+                jsonResponse(['error' => 'PDF oluşturma hatası: ' . $e->getMessage()], 500);
+            }
+        },
+        '/api/download/word' => function() {
+            $referenceNumber = $_POST['reference_number'] ?? '';
+            $category = $_POST['category'] ?? '';
+            $priority = $_POST['priority'] ?? '';
+            $responseContent = $_POST['response_content'] ?? '';
+            
+            if (empty($referenceNumber) || empty($responseContent)) {
+                jsonResponse(['error' => 'Gerekli bilgiler eksik'], 400);
+            }
+            
+            try {
+                require_once __DIR__ . '/../src/Services/PDFService.php';
+                
+                $petitionData = [
+                    'reference_number' => $referenceNumber,
+                    'category_name' => $category,
+                    'priority_name' => $priority
+                ];
+                
+                $wordContent = PDFService::generatePetitionResponseWord($petitionData, $responseContent);
+                $filename = "dilekce_cevabi_{$referenceNumber}.rtf";
+                
+                header('Content-Type: application/rtf; charset=utf-8');
+                header('Content-Disposition: attachment; filename="' . $filename . '"');
+                echo $wordContent;
+                exit;
+                
+            } catch (Exception $e) {
+                jsonResponse(['error' => 'Word oluşturma hatası: ' . $e->getMessage()], 500);
             }
         }
     ]
