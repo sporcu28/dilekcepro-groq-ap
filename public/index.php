@@ -88,7 +88,7 @@ function isAjaxRequest(): bool {
 }
 
 function validateCsrfToken(): bool {
-    if ($method !== 'POST') return true;
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') return true;
     
     $token = $_POST['csrf_token'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
     return hash_equals($_SESSION['csrf_token'], $token);
@@ -102,7 +102,21 @@ function redirect(string $url): void {
 function renderView(string $view, array $data = []): void {
     extract($data);
     $currentUser = getCurrentUser();
-    include __DIR__ . "/../views/$view.php";
+    $viewFile = __DIR__ . "/../views/$view.php";
+    
+    if (!file_exists($viewFile)) {
+        echo "View file not found: $viewFile";
+        exit;
+    }
+    
+    try {
+        include $viewFile;
+    } catch (Throwable $e) {
+        echo "Error rendering view: " . $e->getMessage();
+        echo "<br>File: " . $e->getFile();
+        echo "<br>Line: " . $e->getLine();
+        exit;
+    }
 }
 
 function jsonResponse(array $data, int $httpCode = 200): void {
@@ -111,6 +125,8 @@ function jsonResponse(array $data, int $httpCode = 200): void {
     echo json_encode($data);
     exit;
 }
+
+
 
 // Route tanımları
 $routes = [
@@ -410,6 +426,8 @@ if (isset($routes[$method])) {
         }
     }
 }
+
+
 
 // Dinamik route'lar için (örn: /petitions/123)
 if (!$routeFound) {
